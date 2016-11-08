@@ -57,9 +57,18 @@ void printStars()
     float x = (((Star) Star_Array.get(i)).Xg);
     float y = (((Star) Star_Array.get(i)).Yg);
     float size = (((Star) Star_Array.get(i)).AbsMag);
+    String name = (((Star) Star_Array.get(i)).name);
+    
+   // x = map(i,0, 40, 0, width);
+   // y = map(i,0, 40, 0, -height);
+    stroke(#E00732);
+    ellipse(x *scale + size/2, y*scale + size/4, size, size);
     stroke(#FCF103);
     line(x * scale , y* scale, x * scale + size, y * scale);
-    line(x * scale + size/2 , y* scale-size/2, x * scale + size/2, y * scale +size);
+    line(x * scale + size/2 , y* scale-size/2, x * scale + size/2, y * scale +size/2);
+    fill(0);
+    textSize(12);
+    text(name, x *scale, y *scale- 10);
     
   }
   
