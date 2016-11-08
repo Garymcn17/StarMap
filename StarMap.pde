@@ -3,14 +3,16 @@ Table table;
 void setup()
 {
    size(800,800); 
+   background(0);
    table = loadTable("HabHYG15ly.csv");
-   loadingTable();
+   loadData();
+   printStars();
 }
 
 ArrayList<Star> Star_Array = new ArrayList<Star>();
 Star Star;
 
-void loadingTable()
+void loadData()
 {
   for(TableRow row : table.rows() )
   {
@@ -30,6 +32,22 @@ void loadingTable()
   
       println(S);
     }
+}
+
+void printStars()
+{
+  //float y = 0;
+  //float size = 0;
+  int scale = 100;
+  for (int i = 0; i < Star_Array.size(); i++) 
+  {
+    float x = (((Star) Star_Array.get(i)).Xg);
+    float y = (((Star) Star_Array.get(i)).Yg);
+    float size = (((Star) Star_Array.get(i)).AbsMag);
+    fill(255);
+    ellipse(x * scale , y* scale, size, size);
+  }
+  
 }
 
 
