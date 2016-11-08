@@ -7,6 +7,19 @@ void setup()
    table = loadTable("HabHYG15ly.csv");
    loadData();
    printStars();
+   stroke(255);
+   float widthSpace = 50;
+   float heightSpace = 50;
+   for(int i=0; i<width; i+=widthSpace)
+   {
+   stroke(#B515CE);
+   line(i + widthSpace,0 + widthSpace,i + widthSpace,height- widthSpace);
+   }
+   for(int w=0; w<height; w+=heightSpace)
+   {
+   stroke(#B515CE);
+   line(heightSpace,w + heightSpace,width - widthSpace,w + heightSpace);
+   }
 }
 
 ArrayList<Star> Star_Array = new ArrayList<Star>();
@@ -38,14 +51,16 @@ void printStars()
 {
   //float y = 0;
   //float size = 0;
-  int scale = 100;
+  int scale = 200;
   for (int i = 0; i < Star_Array.size(); i++) 
   {
     float x = (((Star) Star_Array.get(i)).Xg);
     float y = (((Star) Star_Array.get(i)).Yg);
     float size = (((Star) Star_Array.get(i)).AbsMag);
-    fill(255);
-    ellipse(x * scale , y* scale, size, size);
+    stroke(#FCF103);
+    line(x * scale , y* scale, x * scale + size, y * scale);
+    line(x * scale + size/2 , y* scale-size/2, x * scale + size/2, y * scale +size);
+    
   }
   
 }
